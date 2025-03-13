@@ -53,7 +53,7 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar  userLogged={userLogged} setUserLogged={setUserLogged} />
-      <main className="flex-grow">
+      <main className="flex-grow dark:bg-gray-900">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} setUserLogged={setUserLogged} />
