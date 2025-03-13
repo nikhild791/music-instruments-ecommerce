@@ -10,6 +10,7 @@ import Cart from "./pages/Cart";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Category from "./pages/Category";
+import SubCategory from "./pages/SubCategory";
 
 function App() {
     
@@ -60,6 +61,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/categories" element={<Category />} />
+          <Route path="/categories/:categoryName" element={<SubCategory />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>

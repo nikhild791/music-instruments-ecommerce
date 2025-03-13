@@ -1,14 +1,17 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import {
     Card,
     CardHeader,
     CardBody,
     CardFooter,
     Typography,
+    Button,
   } from "@material-tailwind/react";
-import { Link } from 'react-router-dom';
-   
-const Category = () => {
+
+
+const SubCategory = () => {
+    const categoryNameUrl = useParams()
     const productArray =   
     [{
         "categoryName":"GUITAR",
@@ -123,44 +126,64 @@ const Category = () => {
         "categoryProduct":[]
     },
     ]
+    const subcat = productArray.find(a=>a.categoryName.toLowerCase() == categoryNameUrl.categoryName)
+    
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
 
     <div className='flex flex-col  justify-center items-center'>
-        <span className='text-3xl font-bold dark:text-white my-8 '>ALL CATEGORIES</span>
+        <span className='text-3xl font-bold dark:text-white dark:bg-gray-900 my-8 '>        {(subcat.categoryName)}        </span>
         <div className='flex flex-row flex-wrap items-center gap-11 justify-center mb-12'>
 
-     
-        {productArray.map((e)=>{
-            return(<div>
+        {subcat.categoryProduct.map((e,index)=>{
+            return(<div key={index}>
+                
 
-        
-          <Card className="w-72 dark:bg-gray-900 dark:border-white  border-2 rounded m-2">
-      <CardHeader shadow={false} floated={false} className="h-60 mt-0">
-        <Link to={(e.categoryName).toLowerCase()}>
-        <img
-          src={e.categoryImgUrl}
-          className="h-full w-full object-cover"
+      <Card className="w-96 ">
+        <CardHeader shadow={false} floated={false} className="h-96 dark:bg-gray-900">
+          <img
+            src={e.imgUrl}
+            alt={e.name}
+            className="h-full w-full object-cover"
           />
-          </Link>
-      </CardHeader>
-      <CardBody>
-        <div className="mb-2 flex items-center justify-center text-center">
-          <Typography color="blue-gray" className="font-medium dark:text-white justify-center">
-            {e.categoryName}
+        </CardHeader>
+        <CardBody>
+          <div className="mb-2 flex items-center justify-between dark:bg-gray-900">
+            <Typography color="blue-gray" className="font-medium">
+              {e.name}
+            </Typography>
+            <Typography color="blue-gray" className="font-medium">
+              $95.00
+            </Typography>
+          </div>
+          <Typography
+            variant="small"
+            color="gray"
+            className="font-normal opacity-75 dark:bg-gray-900 dark:text-white"
+          >
+            With plenty of talk and listen time, voice-activated Siri access, and
+            an available wireless charging case.
           </Typography>
-        
-        </div>
-       
-      </CardBody>
-    </Card>
-    </div>)
+        </CardBody>
+        <CardFooter className="pt-0">
+          <Button
+            ripple={false}
+            fullWidth={true}
+            className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+          >
+            Add to Cart
+          </Button>
+        </CardFooter>
+      </Card>
+                </div>)
         })}
-      </div>
-      </div>
-      </section>
-  )}
+    </div>
+    </div>
+    </section>
+  )
+}
+
 
   
 
-export default Category
+export default SubCategory
