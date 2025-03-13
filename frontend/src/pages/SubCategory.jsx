@@ -9,6 +9,8 @@ import {
   Button,
 } from "@material-tailwind/react";
 
+import { Link } from "react-router-dom";
+
 const SubCategory = () => {
   const categoryNameUrl = useParams();
   const productArray =   
@@ -217,9 +219,9 @@ const SubCategory = () => {
   );
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-900">
+    <section className="bg-gray-50 dark:bg-gray-950">
       <div className="flex flex-col  justify-center items-center">
-        <span className="text-3xl font-bold dark:text-white dark:bg-gray-900 my-8 ">
+        <span className="text-3xl font-bold dark:text-white dark:bg-gray-950 my-8 ">
           {" "}
           {subcat.categoryName}{" "}
         </span>
@@ -231,7 +233,7 @@ const SubCategory = () => {
                   <CardHeader
                     shadow={false}
                     floated={false}
-                    className="h-96 dark:bg-gray-900 mt-0"
+                    className="h-96 dark:bg-gray-600 mt-0"
                     >
                 <Link to={`${e.name}`} className="cursor-pointer">
                     <img
@@ -263,14 +265,14 @@ const SubCategory = () => {
                     <Button
                       ripple={false}
                       fullWidth={true}
-                      className="dark:bg-white bg-blue-gray-900 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+                      className="dark:bg-white bg-primary dark:text-black text-white shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
                     >
                       Buy now
                     </Button>
                     <Button
                       ripple={false}
                       fullWidth={true}
-                      className="dark:bg-white bg-blue-gray-900 text-blue-gray-900 shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+                      className="dark:bg-white bg-primary dark:text-black text-white shadow-none hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
                     >
                       Add to Cart
                     </Button>
