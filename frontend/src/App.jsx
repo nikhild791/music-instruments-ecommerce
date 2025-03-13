@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Cart from "./pages/Cart";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Category from "./pages/Category";
 
 function App() {
     
@@ -58,6 +59,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/categories" element={<Category />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
