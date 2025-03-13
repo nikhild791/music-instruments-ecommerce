@@ -242,9 +242,8 @@ const ProductDetail = () => {
   const productDetail = subcat.categoryProduct.find(a=>a.name == productname)
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
-  <div className="flex flex-col items-center justify-center px-6 py-2 mx-auto md:h-screen lg:py-0">
+
     <ProductCard productDetail={productDetail}/>
-  </div>
   </section>
   );
 };

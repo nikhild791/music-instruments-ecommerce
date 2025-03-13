@@ -1,279 +1,309 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import ProductCard from "../components/ProductCard";
+import fbi from '../assests/images/1.jpg'
+import mi from '../assests/images/2.jpg'
 
 function Home() {
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Categories based on the image
-  const categories = [
-    "ALL",
-    "GUITAR",
-    "TABLA",
-    "KEYBOARD",
-    "PIANO",
-    "DRUM",
-    "FLUTE",
-    "MUSICIAN'S MALL",
-    "SITAR",
+  const productArray = [
+    {
+      categoryName: "GUITAR",
+      categoryImgUrl:
+        "https://music-club.mrsoni.me/uploads/Admin/categoryImage/GUITAR.jpg",
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 70000.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_1-1_MAYNdNI.jpg",
+        },
+        {
+          name: "second",
+          price: "₹ 50000.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_2-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹ 50000.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_3-1.jpg",
+        },
+        {
+          name: "fourth",
+          price: "₹ 50000.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_4-1.jpg",
+        },
+        {
+          name: "fifth",
+          price: "₹ 12000.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_5-1.jpg",
+        },
+        {
+          name: "sixth",
+          price: "₹ 12000.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_6-1.jpg",
+        },
+      ],
+    },
+    {
+      categoryName: "TABLA",
+      categoryImgUrl:
+        "https://music-club.mrsoni.me/uploads/Admin/categoryImage/TABLA.jpg",
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 1999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_30-1.jpg",
+        },
+        {
+          name: "second",
+          price: "₹ 1999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_31-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹ 3999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_32-1.jpg",
+        },
+        {
+          name: "fourth",
+          price: "₹ 1999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_33-1.jpg",
+        },
+      ],
+    },
+    {
+      categoryName: "KEYBOARD",
+      categoryImgUrl:
+        "https://music-club.mrsoni.me/uploads/Admin/categoryImage/keybord.jpg",
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 25999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_14-1.jpg",
+        },
+        {
+          name: "second",
+          price: "₹ 9999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_10-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹ 25999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_11-1.jpg",
+        },
+      ],
+    },
+    {
+      categoryName: "PIANO",
+      categoryImgUrl:
+        "https://music-club.mrsoni.me/uploads/Admin/categoryImage/piano.jpg",
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 25999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_18-1.jpg",
+        },
+        {
+          name: "second",
+          price: "₹ 19999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_16-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹ 12999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_15-1.jpg",
+        },
+        {
+          name: "fourth",
+          price: "₹ 37999.00 ",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_17-1.jpg",
+        },
+      ],
+    },
+    {
+      categoryName: "DRUM",
+      categoryImgUrl:
+        "https://music-club.mrsoni.me/uploads/Admin/categoryImage/drum.jpg",
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 54999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_8-1.jpg",
+        },
+        {
+          name: "second",
+          price: "₹ 59999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_21-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹ 49999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_9-1.jpg",
+        },
+        {
+          name: "fourth",
+          price: "₹ 120000.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_6-1.jpg",
+        },
+      ],
+    },
+    {
+      categoryName: "FLUTE",
+      categoryImgUrl:
+        "https://music-club.mrsoni.me/uploads/Admin/categoryImage/flute.jpg",
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 1999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Back/p_9-2.jpg",
+        },
+        {
+          name: "second",
+          price: "₹ 99.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_23-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹ 499.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_22-1.jpg",
+        },
+        {
+          name: "fourth",
+          price: "₹ 399.00 ",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_25-1.jpg",
+        },
+      ],
+    },
+    {
+      categoryName: "MUSICIANs MALL",
+      categoryImgUrl:
+        "https://music-club.mrsoni.me/uploads/Admin/categoryImage/MUSICIANs_MALL.jpg",
+      categoryProduct: [],
+    },
+    {
+      categoryName: "SITAR",
+      categoryImgUrl:
+        "https://music-club.mrsoni.me/uploads/Admin/categoryImage/Sitar.jpg",
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 1999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_26-1.jpg",
+        },
+        {
+          name: "second",
+          price: "₹  15999.00 ",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_28-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹  17999.00 ",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_27-1.jpg",
+        },
+        {
+          name: "fourth",
+          price: "₹  19999.00 ",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_29-1.jpg",
+        },
+      ],
+    },
   ];
 
-  // Sample products data structure organized by category (in a real app, this would come from an API)
-  const allProducts = {
-    GUITAR: [
-      {
-        id: "g1",
-        name: "Semi-Acoustic Guitar",
-        price: "7000.00",
-        discountPrice: "5999.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_1-1_MAYNdNI.jpg",
-      },
-      {
-        id: "g2",
-        name: "Acoustic Guitar",
-        price: "13000.00",
-        discountPrice: "11999.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_2-1.jpg",
-      },
-      {
-        id: "g3",
-        name: "Electric Guitar",
-        price: "9000.00",
-        discountPrice: "6999.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_3-1.jpg",
-      },
-      {
-        id: "g4",
-        name: "Classical Guitar",
-        price: "10000.00",
-        discountPrice: "8999.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_4-1.jpg",
-      },
-    ],
-    TABLA: [
-      {
-        id: "t1",
-        name: "Tabla Set",
-        price: "7999.00",
-        discountPrice: "5999.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_30-1.jpg",
-      },
-      {
-        id: "t2",
-        name: "Professional Tabla",
-        price: "3999.00",
-        discountPrice: "2999.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_31-1.jpg",
-      },
-      {
-        id: "t3",
-        name: "Concert Tabla",
-        price: "2999.00",
-        discountPrice: "1999.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_32-1.jpg",
-      },
-      {
-        id: "t4",
-        name: "Designer Tabla",
-        price: "3599.00",
-        discountPrice: "2599.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_33-1.jpg",
-      },
-    ],
-    KEYBOARD: [
-      {
-        id: "k1",
-        name: "Yamaha PSR F51",
-        price: "5999.00",
-        discountPrice: "4299.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_14-1.jpg",
-      },
-      {
-        id: "k2",
-        name: "Yamaha PSR I400 61-Key",
-        price: "12999.00",
-        discountPrice: "9999.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_10-1.jpg",
-      },
-      {
-        id: "k3",
-        name: "Casio CT-X9000IN 61-Key",
-        price: "7999.00",
-        discountPrice: "4999.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_11-1.jpg",
-      },
-      {
-        id: "k4",
-        name: "Roland JUNO-DS",
-        price: "8999.00",
-        discountPrice: "6999.00",
-        imgUrl:
-          "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_10-1.jpg",
-      },
-    ],
-    PIANO: [
-      {
-        id: "p1",
-        name: "Digital Piano",
-        price: "25999.00",
-        discountPrice: "21999.00",
-        imgUrl: "/src/assets/piano1.jpg",
-      },
-      {
-        id: "p2",
-        name: "Upright Piano",
-        price: "19999.00",
-        discountPrice: "15999.00",
-        imgUrl: "/src/assets/piano2.jpg",
-      },
-      {
-        id: "p3",
-        name: "Grand Piano",
-        price: "49999.00",
-        discountPrice: "45999.00",
-        imgUrl: "/src/assets/piano3.jpg",
-      },
-      {
-        id: "p4",
-        name: "Electric Piano",
-        price: "29999.00",
-        discountPrice: "27999.00",
-        imgUrl: "/src/assets/piano4.jpg",
-      },
-    ],
-    DRUM: [
-      {
-        id: "d1",
-        name: "Acoustic Drum Set",
-        price: "15999.00",
-        discountPrice: "12999.00",
-        imgUrl: "/src/assets/drum1.jpg",
-      },
-      {
-        id: "d2",
-        name: "Electric Drum Kit",
-        price: "49999.00",
-        discountPrice: "45999.00",
-        imgUrl: "/src/assets/drum2.jpg",
-      },
-      {
-        id: "d3",
-        name: "Professional Drum Set",
-        price: "15000.00",
-        discountPrice: "12000.00",
-        imgUrl: "/src/assets/drum3.jpg",
-      },
-      {
-        id: "d4",
-        name: "Beginner Drum Kit",
-        price: "8499.00",
-        discountPrice: "5499.00",
-        imgUrl: "/src/assets/drum4.jpg",
-      },
-    ],
-    FLUTE: [
-      {
-        id: "f1",
-        name: "Bamboo Flute",
-        price: "1999.00",
-        discountPrice: "1599.00",
-        imgUrl: "/src/assets/flute1.jpg",
-      },
-      {
-        id: "f2",
-        name: "Professional Flute",
-        price: "4999.00",
-        discountPrice: "3999.00",
-        imgUrl: "/src/assets/flute2.jpg",
-      },
-      {
-        id: "f3",
-        name: "Silver Flute",
-        price: "7999.00",
-        discountPrice: "6999.00",
-        imgUrl: "/src/assets/flute3.jpg",
-      },
-      {
-        id: "f4",
-        name: "Concert Flute",
-        price: "3999.00",
-        discountPrice: "2999.00",
-        imgUrl: "/src/assets/flute4.jpg",
-      },
-    ],
-    SITAR: [
-      {
-        id: "s1",
-        name: "Professional Sitar",
-        price: "19999.00",
-        discountPrice: "16999.00",
-        imgUrl: "/src/assets/sitar1.jpg",
-      },
-      {
-        id: "s2",
-        name: "Beginner Sitar",
-        price: "15999.00",
-        discountPrice: "12999.00",
-        imgUrl: "/src/assets/sitar2.jpg",
-      },
-      {
-        id: "s3",
-        name: "Concert Sitar",
-        price: "17999.00",
-        discountPrice: "15999.00",
-        imgUrl: "/src/assets/sitar3.jpg",
-      },
-      {
-        id: "s4",
-        name: "Decorative Sitar",
-        price: "9999.00",
-        discountPrice: "7999.00",
-        imgUrl: "/src/assets/sitar4.jpg",
-      },
-    ],
-    "MUSICIAN'S MALL": [],
-  };
+  const categoryArray =['ALL'];
 
-  // Filter products based on selected category
+   productArray.forEach((a)=>{
+    categoryArray.push(a.categoryName)
+  })
+
+  
   useEffect(() => {
     setIsLoading(true);
 
     setTimeout(() => {
+      let newProductArray = [];
+      console.log(activeCategory)
       if (activeCategory === "ALL") {
-        // Flatten all products into a single array for "ALL" category
-        const allCategoryProducts = Object.values(allProducts).flat();
-        setFilteredProducts(allCategoryProducts);
+        console.log("hi there")
+        productArray.forEach(category => {
+          category.categoryProduct.forEach(product => {
+            product['category']= category.categoryName
+            newProductArray.push(product);
+          });
+        })
       } else {
-        setFilteredProducts(allProducts[activeCategory] || []);
+        productArray.forEach(category => {
+          if(category.categoryName == activeCategory ){
+            
+            category.categoryProduct.forEach(product => {
+              product['category']= category.categoryName
+              newProductArray.push(product);
+            });
+          }
+        })
       }
+      setFilteredProducts(newProductArray);
+      console.log(newProductArray)
       setIsLoading(false);
-    }, 300); // Small timeout to simulate data fetching
+    }, 300); 
   }, [activeCategory]);
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900">
       {/* Hero Banner Section */}
-      <div className="relative">
+      <div className="flex flex-row gap-5 max-w-[1440px] m-auto px-4 py-4">
+      <div className="relative overflow-hidden">
         <img
-          src="https://music-club.mrsoni.me/assets/front/img/banner.jpg"
+          src={fbi}
           alt="Music Instruments"
-          className="w-full h-48 md:h-64 object-cover"
+          className="w-full h-48 md:h-64 object-cover transition-all transform ease-in-out duration-200 hover:scale-110"
         />
       </div>
-
+      <div className="relative overflow-hidden">
+        <img
+          src={mi}
+          alt="Music Instruments"
+          className="w-full h-48 md:h-64 object-cover transition-all transform ease-in-out duration-500 hover:scale-110 "
+        />
+      </div>
+      <div className="relative overflow-hidden">
+        <img
+          src={fbi}
+          alt="Music Instruments"
+          className="w-full h-48 md:h-64 object-cover transition-all transform ease-in-out duration-200 hover:scale-110  "
+        />
+      </div>
+      </div>
       {/* Category Section */}
       <div className="container mx-auto py-10 px-4">
         <div className="text-center mb-8">
@@ -285,17 +315,17 @@ function Home() {
 
         {/* Category Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {categories.map((category) => (
+          {categoryArray.map((e) => (
             <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
+              key={e}
+              onClick={() => setActiveCategory(e)}
               className={`px-4 py-1.5 rounded-md text-sm border transition-colors ${
-                activeCategory === category
+                activeCategory === e
                   ? "bg-blue-500 text-white border-blue-500"
                   : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700"
               }`}
             >
-              {category}
+              {e}
             </button>
           ))}
         </div>
@@ -309,11 +339,11 @@ function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16">
             {filteredProducts.map((product) => (
               <div
-                key={product.id}
+                key={product.imgUrl}
                 className="bg-white rounded-lg shadow-md overflow-hidden dark:bg-gray-800"
               >
                 <Link
-                  to={`/product/${product.id}`}
+                  to={`/categories/${product.category.toLowerCase()}/${product.name}`}
                   className="block h-48 overflow-hidden"
                 >
                   <img
@@ -323,7 +353,7 @@ function Home() {
                   />
                 </Link>
                 <div className="p-4">
-                  <Link to={`/product/${product.id}`} className="block">
+                  <Link  to={`/categories/${product.category.toLowerCase()}/${product.name}`} className="block">
                     <h3 className="text-lg font-medium text-gray-800 mb-2 truncate dark:text-white">
                       {product.name}
                     </h3>
@@ -341,8 +371,7 @@ function Home() {
                       Add to Cart
                     </button>
                     <Link
-                      to={`/product/${product.id}`}
-                      className="px-3 py-2 bg-gray-100 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+ to={`/categories/${product.category.toLowerCase()}/${product.name}`}                      className="px-3 py-2 bg-gray-100 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
                     >
                       Details
                     </Link>
@@ -360,7 +389,6 @@ function Home() {
         )}
       </div>
     </div>
-    </section>
   );
 }
 
