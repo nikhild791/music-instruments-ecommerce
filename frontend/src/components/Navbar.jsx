@@ -1,6 +1,22 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import ThemeToggle from "./ui/icons/ThemeToggle";
+import CartIcon from "./ui/icons/CartIcon";
+import UserIcon from "./ui/icons/UserIcon";
 
-function Navbar() {
+function Navbar({userLogged ,setUserLogged}) {
+ 
+  const [dropdown,setDropDown]=useState(false)
+  const logout=()=>{
+    if(userLogged){
+      setUserLogged(false)
+    }
+  }
+
+  const handleThemeToggle = () => {
+    document.getElementsByTagName("html")[0].classList.toggle("dark");
+  };
+
   return (
     <nav className="bg-primary text-white shadow-md">
       <div className="container-custom py-4">
@@ -22,26 +38,43 @@ function Navbar() {
               Contact
             </Link>
           </div>
+
           <div className="flex items-center space-x-4">
-            <Link to="/cart" className="hover:text-gray-200">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-            </Link>
-            <Link to="/login" className="hover:text-gray-200">
-              Login
-            </Link>
+            <ThemeToggle onToggle={handleThemeToggle} />
+            {userLogged ? (
+              <>
+                <Link to="/cart" className="hover:text-gray-200">
+                  <CartIcon />
+                </Link>
+                <div className="hover:text-gray-200" onClick={()=>{setDropDown(x=>!x)}}>
+                  <UserIcon  />
+
+            
+
+<div id="dropdown" class={`z-10 top-14 absolute  bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 ${dropdown?'':'hidden'}`}>
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+      </li>
+      <li>
+        <div onClick={()=>{logout()}} class="block cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">LogOut</div>
+      </li>
+    </ul>
+</div>
+
+                </div>
+              </>
+            ) : (
+              <Link to="/login" className="hover:text-gray-200">
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </div>

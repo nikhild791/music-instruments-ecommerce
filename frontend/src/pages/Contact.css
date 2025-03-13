@@ -1,0 +1,172 @@
+.contact-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.contact-icon-wrapper:hover {
+  transform: scale(1.1);
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px);
+  background: #3b82f6;
+  color: white;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid rgba(59, 130, 246, 0.1);
+  border-radius: 0.5rem;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.dark .form-input,
+.dark .form-textarea {
+  background: #374151;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-button:hover {
+  background: #2563eb;
+}
+
+.musical-notes-subtle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  opacity: 0.03;
+  background-image: repeating-linear-gradient(
+    45deg,
+    currentColor 0,
+    currentColor 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 10px 10px;
+  border-radius: 0 1rem 0 0;
+}
+
+/* Floating animation for subtle background elements */
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+/* Success message animation */
+@keyframes success-bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.submit-button i {
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover i {
+  transform: translateX(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-icon-wrapper,
+  .social-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .form-input,
+  .form-textarea,
+  .submit-button {
+    padding: 0.625rem;
+  }
+}
+
+/* Dark mode specific styles */
+.dark .contact-icon-wrapper {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.dark .social-icon {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.dark .social-icon:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* Input autofill styles */
+.dark .form-input:-webkit-autofill,
+.dark .form-input:-webkit-autofill:hover,
+.dark .form-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #374151 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Success state animations */
+.submit-button.success {
+  background: #10b981;
+  animation: success-bounce 0.5s ease;
+}
+
+/* Hover effects for interactive elements */
+.form-input:hover,
+.form-textarea:hover {
+  border-color: #60a5fa;
+} 

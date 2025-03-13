@@ -25,7 +25,7 @@ function Home() {
 
   if (loading) {
     return (
-      <div className="container-custom py-12 text-center">
+      <div className="w-full bg-gray-200 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto"></div>
         <p className="mt-4 text-gray-600">Loading products...</p>
       </div>
@@ -34,7 +34,7 @@ function Home() {
 
   if (error) {
     return (
-      <div className="container-custom py-12 text-center">
+      <div className="w-full bg-gray-200 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
           <p>{error}</p>
         </div>
@@ -43,7 +43,7 @@ function Home() {
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="w-full bg-gray-200 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
       {/* Hero Section */}
       <div className="bg-primary text-white py-16">
         <div className="container-custom text-center">
