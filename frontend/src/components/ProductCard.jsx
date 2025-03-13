@@ -1,32 +1,34 @@
 import { Link } from "react-router-dom";
 
-function ProductCard({ product }) {
+function ProductCard({productDetail}) {
+  console.log(productDetail)
+  
   return (
+  
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
-      <div className="h-48 overflow-hidden">
+      <div className="h-48 overflow-hidden w-96">
         <img
           src={
-            product.image_url ||
-            "https://via.placeholder.com/300x200?text=No+Image"
+            productDetail.imgUrl 
           }
-          alt={product.name}
+          alt={productDetail.name}
           className="w-full h-full object-cover"
         />
       </div>
       <div className="p-4">
         <h3 className="text-lg font-semibold mb-2 text-gray-800">
-          {product.name}
+          {productDetail.name}
         </h3>
         <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-          {product.description}
+          This product is very good
         </p>
         <div className="flex justify-between items-center">
           <span className="text-primary-dark font-bold">
-            ${product.price.toFixed(2)}
+            ${productDetail.price}
           </span>
           <div className="space-x-2">
             <Link
-              to={`/product/${product.id}`}
+              to={'/'}
               className="text-primary hover:text-primary-dark text-sm"
             >
               Details

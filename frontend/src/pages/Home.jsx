@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "../api/axios";
 import ProductCard from "../components/ProductCard";
 
 function Home() {
@@ -7,21 +6,7 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("/products");
-        setProducts(response.data);
-        setLoading(false);
-      } catch (err) {
-        console.error("Error fetching products:", err);
-        setError("Failed to load products. Please try again later.");
-        setLoading(false);
-      }
-    };
 
-    fetchProducts();
-  }, []);
 
   if (loading) {
     return (
