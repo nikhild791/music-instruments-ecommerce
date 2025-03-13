@@ -12,37 +12,37 @@ export default function ProductDetail() {
       categoryProduct: [
         {
           name: "first",
-          price: 3444,
+          price: "₹ 70000.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_1-1_MAYNdNI.jpg",
         },
         {
           name: "second",
-          price: 3444,
+          price: "₹ 50000.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_2-1.jpg",
         },
         {
           name: "third",
-          price: 3444,
+          price: "₹ 50000.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_3-1.jpg",
         },
         {
           name: "fourth",
-          price: 3444,
+          price: "₹ 50000.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_4-1.jpg",
         },
         {
           name: "fifth",
-          price: 3444,
+          price: "₹ 12000.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_5-1.jpg",
         },
         {
           name: "sixth",
-          price: 3444,
+          price: "₹ 12000.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_6-1.jpg",
         },
@@ -55,25 +55,25 @@ export default function ProductDetail() {
       categoryProduct: [
         {
           name: "first",
-          price: 3444,
+          price: "₹ 1999.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_30-1.jpg",
         },
         {
           name: "second",
-          price: 3444,
+          price: "₹ 1999.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_31-1.jpg",
         },
         {
           name: "third",
-          price: 3444,
+          price: "₹ 3999.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_32-1.jpg",
         },
         {
           name: "fourth",
-          price: 3444,
+          price: "₹ 1999.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_33-1.jpg",
         },
@@ -86,27 +86,21 @@ export default function ProductDetail() {
       categoryProduct: [
         {
           name: "first",
-          price: 3444,
+          price: "₹ 25999.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_14-1.jpg",
         },
         {
           name: "second",
-          price: 3444,
+          price: "₹ 9999.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_10-1.jpg",
         },
         {
           name: "third",
-          price: 3444,
+          price: "₹ 25999.00",
           imgUrl:
             "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_11-1.jpg",
-        },
-        {
-          name: "fourth",
-          price: 3444,
-          imgUrl:
-            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_20-1.jpg",
         },
       ],
     },
@@ -114,19 +108,94 @@ export default function ProductDetail() {
       categoryName: "PIANO",
       categoryImgUrl:
         "https://music-club.mrsoni.me/uploads/Admin/categoryImage/piano.jpg",
-      categoryProduct: [],
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 25999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_18-1.jpg",
+        },
+        {
+          name: "second",
+          price: "₹ 19999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_16-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹ 12999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_15-1.jpg",
+        },
+        {
+          name: "fourth",
+          price: "₹ 37999.00 ",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_17-1.jpg",
+        },
+      ],
     },
     {
       categoryName: "DRUM",
       categoryImgUrl:
         "https://music-club.mrsoni.me/uploads/Admin/categoryImage/drum.jpg",
-      categoryProduct: [],
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 54999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_8-1.jpg",
+        },
+        {
+          name: "second",
+          price: "₹ 59999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_21-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹ 49999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_9-1.jpg",
+        },
+        {
+          name: "fourth",
+          price: "₹ 120000.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_6-1.jpg",
+        },
+      ],
     },
     {
       categoryName: "FLUTE",
       categoryImgUrl:
         "https://music-club.mrsoni.me/uploads/Admin/categoryImage/flute.jpg",
-      categoryProduct: [],
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 1999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Back/p_9-2.jpg",
+        },
+        {
+          name: "second",
+          price: "₹ 99.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_23-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹ 499.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_22-1.jpg",
+        },
+        {
+          name: "fourth",
+          price: "₹ 399.00 ",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_25-1.jpg",
+        },
+      ],
     },
     {
       categoryName: "MUSICIANs MALL",
@@ -138,7 +207,32 @@ export default function ProductDetail() {
       categoryName: "SITAR",
       categoryImgUrl:
         "https://music-club.mrsoni.me/uploads/Admin/categoryImage/Sitar.jpg",
-      categoryProduct: [],
+      categoryProduct: [
+        {
+          name: "first",
+          price: "₹ 1999.00",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_26-1.jpg",
+        },
+        {
+          name: "second",
+          price: "₹  15999.00 ",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_28-1.jpg",
+        },
+        {
+          name: "third",
+          price: "₹  17999.00 ",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_27-1.jpg",
+        },
+        {
+          name: "fourth",
+          price: "₹  19999.00 ",
+          imgUrl:
+            "https://music-club.mrsoni.me/uploads/Admin/ProductImage/Main/p_29-1.jpg",
+        },
+      ],
     },
   ];
   const subcat = productArray.find(a=>(a.categoryName).toLowerCase() == p1.categoryName)
