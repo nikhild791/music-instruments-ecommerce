@@ -1,16 +1,13 @@
 import { Link } from "react-router-dom";
 
-function ProductCard({productDetail}) {
-  console.log(productDetail)
-  
+function ProductCard({ productDetail }) {
+  console.log(productDetail);
+
   return (
-  
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
       <div className="h-48 overflow-hidden w-96">
         <img
-          src={
-            productDetail.imgUrl 
-          }
+          src={productDetail.imgUrl}
           alt={productDetail.name}
           className="w-full h-full object-cover"
         />
@@ -28,7 +25,7 @@ function ProductCard({productDetail}) {
           </span>
           <div className="space-x-2">
             <Link
-              to={'/'}
+              to={"/"}
               className="text-primary hover:text-primary-dark text-sm"
             >
               Details
